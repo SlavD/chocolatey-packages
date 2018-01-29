@@ -1,0 +1,60 @@
+﻿<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>visualstudio2015buildtools</id>
+    <version>2015.0.1</version>
+    <packageSourceUrl>https://github.com/SlavD/ChocolateyPackages/tree/master/visualstudio2015buildtools</packageSourceUrl>
+    <owners>slavd</owners>
+    <title>Visual Studio 2015 Build Tools</title>
+    <authors>Microsoft</authors>
+    <projectUrl>https://www.microsoft.com/en-us/download/details.aspx?id=48159</projectUrl>
+    <iconUrl>https://cdn.rawgit.com/jberezanski/ChocolateyPackages/17d25f2fb8a31d40b93a696e345c22a77913418f/icons/vs2017.png</iconUrl>
+    <copyright>http://www.microsoft.com/about/legal/en/us/IntellectualProperty/Copyright/Default.aspx</copyright>
+    <licenseUrl>https://www.visualstudio.com/license-terms/mlt687465/</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <docsUrl>https://docs.microsoft.com/en-us/visualstudio/welcome-to-visual-studio</docsUrl>
+    <bugTrackerUrl>https://visualstudio.uservoice.com/forums/121579-visual-studio</bugTrackerUrl>
+    <tags>microsoft visual studio visualstudio vs 2015 build tools admin</tags>
+    <summary>Build Tools allow you to build native and managed MSBuild-based applications without requiring the Visual Studio IDE.</summary>
+    <description>
+### Overview
+
+These Build Tools allow you to build native and managed MSBuild-based applications without requiring the Visual Studio IDE. There are options to install the Visual C++ compilers and libraries, MFC, ATL, and C++/CLI support.
+
+To find out what's new or to see the known issues, see the [Visual Studio 2017 Release Notes](https://www.visualstudio.com/en-us/news/releasenotes/vs2017-relnotes).  
+[System requirements](https://www.visualstudio.com/en-us/productinfo/vs2017-system-requirements-vs)
+
+### Customizations
+
+By default, the package installs only the bare minimum required (the MSBuild Tools workload). The easiest way to add more workloads is to use the workload packages:
+- [Visual C++ build tools](https://chocolatey.org/packages/visualstudio2017-workload-vctools)
+- [Web development build tools](https://chocolatey.org/packages/visualstudio2017-workload-webbuildtools).
+
+All package parameters are passed to the Visual Studio installer, enabling full customization of the installation. The possible parameters are [described here](https://docs.microsoft.com/en-us/visualstudio/install/use-command-line-parameters-to-install-visual-studio). The package passes `--norestart --wait` by default, and `--quiet`, unless `--passive` is specified in the package parameters.
+
+After installing the package, more features can also be added by launching the Visual Studio Installer application from the Start Menu.
+
+The language of the installed software can be controlled using the package parameter `--locale &lt;language&gt;`.
+The list of languages is [presented here](https://docs.microsoft.com/en-us/visualstudio/install/use-command-line-parameters-to-install-visual-studio#list-of-language-locales). By default, the operating system display language is used.
+
+#### Full installation
+This command will install Visual Studio Build Tools with all available workloads and optional components, display progress during the installation and specify the English language regardless of operating system settings:
+
+    choco install visualstudio2017buildtools --package-parameters "--allWorkloads --includeRecommended --includeOptional --passive --locale en-US"
+
+### Notes
+
+A reboot may be required after (or even _before_) installing/uninstalling this package.
+If control over reboots is required, it is advisable to install the dependencies (esp. dotnet4.6.1 or later) first, perform a reboot if necessary, and then install this package.
+    </description>
+    <releaseNotes>
+      ##### Software
+      [Visual Studio 2015 release notes](http://www.visualstudio.com/news/vs2015-vs)
+      ##### Package
+      
+    </releaseNotes>
+    <dependencies>
+      <dependency id="chocolatey-visualstudio.extension" version="1.4.0" />
+    </dependencies>
+  </metadata>
+</package>
